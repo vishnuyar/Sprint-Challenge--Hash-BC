@@ -24,11 +24,35 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+To access an element of an array the run time complexity is constant.
+To add an element to the front all the elements have to be shifted, the time complexity is O(n)
+To remove an element from the front of the array, the time complexity is O(n)
+To add an element to the back of the array is O(1)
+To remove an element from the back of the array is o(1)
+
+
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
+The worst case scenario of extending the storage size of the array is O(n)
+
+
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+In a blockchain, each block is chained to each other like in an array. Each block contains the details of the block such as the transactions in each block, time the block was generated, hash of the previous block.
+
+The first block is the genesis block. Each subsequent block is generated after a proof of work is validated as per the designated algorithm. Once the proof is valid, a new block is generated and then chained to the previous block. 
+
+The data in the blocks is organised such that there is no central repository, whereas all the data can be deciphered by looking at the data in each of the blocks.
+
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+Proof of work functions such that, using the data in the block a hash is generated, this hash needs to be such that it satisfies an algorithm requirment. As soon as the proof is satisfied, a new block is added to the blockchain and the next block which is generated has to satisfy the proof based on the newly generated block. Due to the nature of such requirement, any attacker needs to constantly update with the latest block or else he will be left behind.
+
+As the proof is structured this way, an attack is possible, only if the network is controlled by the attacker. If the attacker controls the network, then he can write the block he wants, that way the new blocks can be added only by the attacker.
+
 
 ## Project Set Up
 
