@@ -8,13 +8,29 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
+    solution = None
+    if ht.capacity < length:
+        ht = hash_table_resize(ht)
+    
+    #inserting the weights in a hash table
+    for index,weight in enumerate(weights):
+        hash_table_insert(ht,weight,index)
 
-    """
-    YOUR CODE HERE
-    """
-
-    return None
-
+    #checking for items which statisfy the limit criteria    
+    for index,weight in enumerate(weights):
+        balance_weight = limit - weight
+        found_item = hash_table_retrieve(ht,balance_weight)
+        if (found_item):
+            if (found_item != index):
+                if found_item > index:
+                    
+                    solution = (found_item,index)
+                    
+                else:
+                    solution = (index,found_item)
+                    
+    return solution 
+ 
 
 def print_answer(answer):
     if answer is not None:
